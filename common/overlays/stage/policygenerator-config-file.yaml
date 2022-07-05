@@ -21,7 +21,7 @@ policies:
     - setup
   disabled: false
   manifests:
-    - path: ./../../base/manifests
+    - path: ./base/manifests
 - name: stage-configurations
   categories:
     - setup
