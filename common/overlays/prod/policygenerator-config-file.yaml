@@ -11,7 +11,7 @@ policyDefaults:
   remediationAction: inform
   severity: medium
   placement:
-    clusterselector:
+    clusterSelectors:
       env: prod
 policies:
 - name: base-configurations
