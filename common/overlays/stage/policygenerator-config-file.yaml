@@ -10,9 +10,6 @@ policyDefaults:
   namespace: policies
   remediationAction: inform
   severity: medium
-  placement:
-    clusterSelectors:
-      env: stage
 policies:
 - name: base-configurations
   categories:
@@ -22,6 +19,9 @@ policies:
   disabled: false
   manifests:
     - path: ./base/manifests
+  placement:
+    clusterSelectors:
+      vendor: OpenShift
 - name: stage-configurations
   categories:
     - setup
@@ -30,3 +30,6 @@ policies:
   disabled: false
   manifests:
     - path: ./manifests
+  placement:
+    clusterSelectors:
+      env: stage
