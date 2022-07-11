@@ -6,7 +6,7 @@ metadata:
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: policy-generator-uwm
+  name: policy-generator-amigliet
   namespace: policy-generator
 spec:
   componentKinds:
@@ -18,7 +18,7 @@ spec:
       - key: app
         operator: In
         values:
-          - policy-generator-uwm
+          - policy-generator-amigliet
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
@@ -39,7 +39,7 @@ metadata:
     apps.open-cluster-management.io/git-path: common/overlays/stage
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
-    app: policy-generator-uwm
+    app: policy-generator-amigliet
   name: policy-generator-subscription
   namespace: policy-generator
 spec:
@@ -54,14 +54,14 @@ spec:
   placement:
     placementRef:
       kind: PlacementRule
-      name: policy-generator-uwm-placement
+      name: policy-generator-amigliet-placement
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   labels:
-    app: policy-generator-uwm
-  name: policy-generator-uwm-placement
+    app: policy-generator-amigliet
+  name: policy-generator-amigliet-placement
   namespace: policy-generator
 spec:
   clusterConditions:

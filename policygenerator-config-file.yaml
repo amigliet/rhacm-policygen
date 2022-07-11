@@ -18,7 +18,7 @@ policies:
     - setup
   disabled: false
   manifests:
-    - path: ./base/manifests
+    - path: ./common/base/manifests
   placement:
     clusterSelectors:
       vendor: OpenShift
@@ -29,7 +29,7 @@ policies:
     - setup
   disabled: false
   manifests:
-    - path: ./manifests
+    - path: ./common/stage/manifests
   placement:
     clusterSelectors:
       env: stage
@@ -40,7 +40,7 @@ policies:
     - setup
   disabled: false
   manifests:
-    - path: ./manifests
+    - path: ./common/prod/manifests
   placement:
     clusterSelectors:
       env: prod
