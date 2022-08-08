@@ -1,0 +1,8 @@
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: namespace-stage
+  name: namespace-stage
+spec:
+  finalizers:
+  - kubernetes
