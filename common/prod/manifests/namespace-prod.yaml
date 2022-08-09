@@ -1,8 +1,8 @@
 kind: Namespace
 metadata:
   labels:
-    kubernetes.io/metadata.name: demo-ns-0
-  name: demo-ns-0
+    kubernetes.io/metadata.name: namespace-prod
+  name: namespace-prod
 spec:
   finalizers:
   - kubernetes

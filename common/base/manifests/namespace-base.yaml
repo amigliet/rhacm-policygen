@@ -1,0 +1,8 @@
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: namespace-base
+  name: namespace-base
+spec:
+  finalizers:
+  - kubernetes
