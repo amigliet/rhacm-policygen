@@ -1,28 +1,17 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PolicyGenerator
 metadata:
-  name: stage-config-data-policies
+  name: enforce-config-policies
 policyDefaults:
   categories:
     - CM Configuration Management
   controls:
     - CM-1 Baseline Configuration
   namespace: policies
-  remediationAction: inform
+  remediationAction: enforce
   severity: medium
 policies:
-- name: base-configurations
-  categories:
-    - setup
-  controls:
-    - setup
-  disabled: false
-  manifests:
-    - path: ./common/base/manifests
-  placement:
-    clusterSelectors:
-      vendor: OpenShift
-- name: stage-configurations
+- name: stage-configs
   categories:
     - setup
   controls:
@@ -30,18 +19,11 @@ policies:
   disabled: false
   manifests:
     - path: ./common/stage/manifests
-      patches:
-        - apiVersion: "operator.openshift.io/v1"
-          kind: "IngressController"
-          metadata:
-            name: "default"
-            namespace: "openshift-ingress-operator"
-          spec:
-            replicas: 2
   placement:
     clusterSelectors:
       env: stage
-- name: prod-configurations
+      vendor: OpenShift
+- name: prod-configs
   categories:
     - setup
   controls:
@@ -52,3 +34,4 @@ policies:
   placement:
     clusterSelectors:
       env: prod
+      vendor: OpenShift

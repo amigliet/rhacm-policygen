@@ -6,7 +6,7 @@ metadata:
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: policy-generator-amigliet
+  name: policy-generator-inform
   namespace: policy-generator
 spec:
   componentKinds:
@@ -18,14 +18,14 @@ spec:
       - key: app
         operator: In
         values:
-          - policy-generator-amigliet
+          - policy-generator-inform
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
-  annotations:
-    apps.open-cluster-management.io/reconcile-rate: high
-  name: policy-generator-ch
+#  annotations:
+#    apps.open-cluster-management.io/reconcile-rate: high
+  name: policy-generator-inform-ch
   namespace: policy-generator
 spec:
   type: Git
@@ -35,12 +35,12 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
   annotations:
-    apps.open-cluster-management.io/git-branch: devel
+    apps.open-cluster-management.io/git-branch: pattern-inform
     apps.open-cluster-management.io/git-path: /
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
-    app: policy-generator-amigliet
-  name: policy-generator-subscription
+    app: policy-generator-inform
+  name: policy-generator-inform-subscription
   namespace: policy-generator
 spec:
   allow:
@@ -54,14 +54,14 @@ spec:
   placement:
     placementRef:
       kind: PlacementRule
-      name: policy-generator-amigliet-placement
+      name: policy-generator-inform-placement
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   labels:
-    app: policy-generator-amigliet
-  name: policy-generator-amigliet-placement
+    app: policy-generator-inform
+  name: policy-generator-inform-placement
   namespace: policy-generator
 spec:
   clusterConditions:
