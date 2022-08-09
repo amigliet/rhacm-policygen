@@ -13,6 +13,6 @@ spec:
   httpEmptyRequestsPolicy: Respond
   httpErrorCodePages:
     name: ""
-  replicas: 3
+  replicas: 4
   tuningOptions: {}
   unsupportedConfigOverrides: null
