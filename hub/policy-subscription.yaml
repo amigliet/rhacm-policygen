@@ -48,7 +48,7 @@ spec:
     - apiVersion: apps.open-cluster-management.io/v1
       kinds:
         - PlacementRule
-  channel: policy-generator/policy-generator-placementrules
+  channel: policy-generator-placementrules/policy-generator-placementrules
   placement:
     placementRef:
       kind: PlacementRule
